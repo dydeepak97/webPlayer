@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,14 +14,22 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Libraries-->
-    <script  src="lib/angular.min.js"></script>
-    <script src="lib/angular-ui-router.min.js"></script>
+    <script  src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-ui-router.min.js"></script>
+
+
+
+    <!--NG App-->
+    <script src="js/app/harmony.js"></script>
+
+    <!--service-->
+    <script type="text/javascript" src="js/app/harmony.videoSearchService.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body ng-app="harmony" >
 
     <div class="site-wrapper">
 
@@ -42,6 +50,19 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Cover your page.</h1>
+
+            <div ng-controller="youtubeTestController">
+              {{list.items.id}}
+
+              <ol>
+                <li ng-repeate="item in list.items">
+                  {{item.id}}
+                </li>
+              </ol>
+            </div>
+
+
+
             <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
             <p class="lead">
               <a href="#" class="btn btn-lg btn-secondary ">Learn more</a>
