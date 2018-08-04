@@ -2,7 +2,7 @@
 
 'use strict';
 
-console.log("Harmony Module Created");
+console.log("videoSearchService Created");
 
 angular.module('harmony')
 .service('videoSearchService', videoSearchService)
@@ -13,7 +13,7 @@ function videoSearchService($http, $q, ApiBasePath){
   console.log("service Lonch");
   var service = this;
 
-  service.addItem = function(){
+  service.getSearchData = function(){
 
       var response = $http({
         method: "GET",

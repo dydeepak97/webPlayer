@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" ng-app="harmony">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,23 +13,36 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Libraries-->
-    <script  src="js/lib/angular.min.js"></script>
-    <script src="js/lib/angular-ui-router.min.js"></script>
-
-
+    <script  src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <!-- <script src="node_modules/ytdl-core/lib/index.js"></script> -->
 
     <!--NG App-->
-    <script src="js/app/harmony.js"></script>
+    <script src="js/harmony.js"></script>
+
+    <!-- Router -->
+    <script src="js/router.js"></script>
+
+    <!--Youtube Modules -->
+    <script type="text/javascript" src="js/app/ApiHandler/ApiHandler.module.js"></script>
+    <script src="js/app/ApiHandler/youtubeService.js" ></script>
+
+    <!-- controller -->
+    <script src="js/app/topSongsMenu/topSongsMenu.controller.js"></script>
+
+
 
     <!--service-->
-    <script type="text/javascript" src="js/app/harmony.videoSearchService.js"></script>
+    <script type="text/javascript" src="js/harmony.videoSearchService.js"></script>
+
 
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
 
-  <body ng-app="harmony" >
+  <body>
 
     <div class="site-wrapper">
 
@@ -48,18 +61,27 @@
             </div>
           </div>
 
-          <div class="inner cover">
+          <div class="inner cover" ng-controller="testController">
             <h1 class="cover-heading">Cover your page.</h1>
 
-            <div ng-controller="youtubeTestController">
+            <!-- <div ng-controller="youtubeTestController as ytb">
               {{list.items.id}}
 
               <ol>
-                <li ng-repeate="item in list.items">
+                <li ng-repeate="item in ytb.list.items">
                   {{item.id}}
                 </li>
               </ol>
-            </div>
+            </div> -->
+
+
+{{name}}
+            <ui-view>
+                <h1>THIS is h1</h1>
+
+            </ui-view>
+
+            <a ui-sref='public.home' >Open Top Songs</a>
 
 
 
@@ -80,15 +102,13 @@
       </div>
 
     </div>
+<!--
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>
