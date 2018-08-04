@@ -2,7 +2,7 @@
 
 'use strict';
 
-angular.module('harmony', ['ApiHandler'])
+angular.module('ApiHandler')
 .controller('topSongsController', topSongsController);
 
 topSongsController.$inject = ['videoList'];

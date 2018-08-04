@@ -2,39 +2,15 @@
 
 'use strict';
 
-console.log("Harmony Module Created");
+console.log("Main Harmony Module Started");
 
 angular.module('harmony', ['ui.router', 'ApiHandler'])
-.controller('testController', testController);
+.controller('testCtr', testCtr);
 
+testCtr.$inject = ['$scope'];
 
-testController.$inject = ['$scope'];
-
-function testController($scope){
-  $scope.name= 2;
+function testCtr($scope){
+  $scope.num=30;
 }
-
-
-
-
-
-// .controller('youtubeTestController', youtubeTestcontroller);
-//
-// youtubeTestcontroller.$inject = ['$scope'];
-//
-// function youtubeTestcontroller($scope){
-//   console.log("controller Lonch");
-//   var list = this;
-//
-//   list.items = videoSearchService.getSearchData();
-//
-//   console.log("list is here");
-//   console.log(list.items);
-//
-//
-// }
-
-
-
 
 })();

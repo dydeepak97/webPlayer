@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/dydeepak97/webPlayer#readme",
   "dependencies": {
+    "angular": "^1.7.2",
+    "angular-ui-router": "^1.0.19",
     "ytdl-core": "^0.21.1"
   }
 }

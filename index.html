@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app="harmony">
+<html lang="en" ng-app='harmony'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,12 +15,12 @@
 
 
     <!-- Libraries-->
-    <script  src="lib/angular.min.js"></script>
-    <script src="lib/angular-ui-router.min.js"></script>
+    <script  src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!-- <script src="node_modules/ytdl-core/lib/index.js"></script> -->
 
     <!--NG App-->
-    <script src="js/harmony.js"></script>
+    <script  type="text/javascript" src="js/harmony.js"></script>
 
     <!-- Router -->
     <script src="js/router.js"></script>
@@ -61,7 +61,7 @@
             </div>
           </div>
 
-          <div class="inner cover" ng-controller="testController">
+          <div class="inner cover">
             <h1 class="cover-heading">Cover your page.</h1>
 
             <!-- <div ng-controller="youtubeTestController as ytb">
@@ -81,7 +81,7 @@
 
             </ui-view>
 
-            <a ui-sref='public.home' >Open Top Songs</a>
+            <a ui-sref='topSongsMenu' >Open Top Songs</a>
 
 
 
