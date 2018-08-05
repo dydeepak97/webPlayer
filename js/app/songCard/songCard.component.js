@@ -8,8 +8,7 @@ angular.module('ApiHandler')
 .component('songCard', {
   templateUrl:'js/app/songCard/songCard.html',
   bindings: {
-    song: '<',
-    image: '<'
+    song: '<'
   }
 });
 

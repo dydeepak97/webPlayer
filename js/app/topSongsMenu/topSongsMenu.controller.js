@@ -11,30 +11,33 @@ function topSongsController(videoList, youtubeService, $timeout){
   var $ctrl = this;
   $ctrl.searchTerm = "song";
 
-  $ctrl.videoList = videoList;
+  console.log("After Route", videoList.data);
 
-    $ctrl.top5 = {};
+  $ctrl.videoList = videoList.data.items;
+  $ctrl.top5 = {};
 
   $ctrl.getYoutubeSearch = function(searchTerm){
     console.log("Search button clicked");
-    $ctrl.videoList = youtubeService.getSearchData(searchTerm);
+    $ctrl.response = youtubeService.getSearchData(searchTerm);
 
-
-    console.log("Response after btn", $ctrl.videoList);
-
-    for (var i = 1; i < 5; i++) {
-     $ctrl.top5[i] = $ctrl.videoList[i].snippet;
-    }
+    $ctrl.response.then(function(result){
+          console.log(result.data.items[0].snippet.channelTitle);
+          $ctrl.videoList = result.data.items;
+          console.log("Response after btn", $ctrl.videoList);
+          for (var i = 1; i < 5; i++) {
+           $ctrl.top5[i] = $ctrl.videoList[i];;
+          }
+      }).catch(function(error){
+        return "ERROR";
+      });
   };
-
-
 
   console.log("response:" , $ctrl.videoList[3]);
 
   for (var i = 1; i < 5; i++) {
-   $ctrl.top5[i] = $ctrl.videoList[i].snippet;
+   $ctrl.top5[i] = $ctrl.videoList[i];
   }
-
+  
   console.log("Top5:" , $ctrl.top5);
 }
 
