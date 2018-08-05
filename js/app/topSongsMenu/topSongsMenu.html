@@ -1,2 +1,14 @@
 <h1>It's homepage. Top songs will appear here.</h1>
-{{topSongsMenu.videoList | json }}
+<div class="">
+  <input ng-model="topSongsMenu.searchTerm" />
+  <button class="btn" ng-click="topSongsMenu.getYoutubeSearch(topSongsMenu.searchTerm)">Search</button>
+</div>
+
+
+<!-- {{topSongsMenu.videoList | json }} -->
+<!-- {{topSongsMenu.top5}} -->
+<song-card ng-repeat="song in topSongsMenu.top5"
+    song="song.title"
+    image='song.thumbnails.medium.url' >
+
+</song-card>

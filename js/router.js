@@ -26,8 +26,8 @@ function RoutesConfig( $stateProvider, $urlRouterProvider ){
       controller:'topSongsController',
       controllerAs: 'topSongsMenu',
       resolve: {
-        videoList : ['videoSearchService', function(videoSearchService){
-          return videoSearchService.getSearchData();
+        videoList : ['youtubeService', function(youtubeService){
+          return youtubeService.getSearchData('eastside');
         }]
       }
     })

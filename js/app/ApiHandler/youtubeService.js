@@ -6,15 +6,15 @@ console.log("Youtube ServiceCreated");
 
 angular.module('ApiHandler')
 .service('youtubeService', youtubeService)
-.constant('ApiBasePath', "https://www.googleapis.com/youtube/v3/search").
-constant('ApiKey', 'AIzaSyAVqoqkJ01svDnPnEXpPPMisrwOZhiijqY');
+.constant('ApiBasePath', "https://www.googleapis.com/youtube/v3/search")
+.constant('ApiKey', "AIzaSyAVqoqkJ01svDnPnEXpPPMisrwOZhiijqY");
 
-youtubeService.$inject = ['$http' , 'ApiBasePath'];
-function youtubeService($http, ApiBasePath){
+youtubeService.$inject = ['$http' , 'ApiBasePath', 'ApiKey'];
+function youtubeService($http, ApiBasePath, ApiKey){
   console.log("service Lonch");
   var service = this;
 
-  service.getSearchData = function(){
+  service.getSearchData = function(searchTerm){
 
       console.log("Youtube Service Called");
 
@@ -24,7 +24,8 @@ function youtubeService($http, ApiBasePath){
         params:{
             part: 'snippet',
             key: ApiKey,
-            q: 'RainbowSix'
+            q: searchTerm,
+            kind: 'video'
         }
       });
       return response.then(function(result){
