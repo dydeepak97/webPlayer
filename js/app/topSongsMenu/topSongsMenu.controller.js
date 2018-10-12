@@ -5,9 +5,9 @@
 angular.module('ApiHandler')
 .controller('topSongsController', topSongsController);
 
-topSongsController.$inject = ['videoList', 'youtubeService' , '$timeout'];
+topSongsController.$inject = ['videoList', 'youtubeService', 'lastFmService', '$timeout'];
 
-function topSongsController(videoList, youtubeService, $timeout){
+function topSongsController(videoList, youtubeService, lastFmService, $timeout){
   var $ctrl = this;
   $ctrl.searchTerm = "song";
 
@@ -18,9 +18,13 @@ function topSongsController(videoList, youtubeService, $timeout){
 
   $ctrl.getYoutubeSearch = function(searchTerm){
     console.log("Search button clicked");
-    $ctrl.response = youtubeService.getSearchData(searchTerm);
+    let response = youtubeService.getSearchData(searchTerm);
 
-    $ctrl.response.then(function(result){
+    //FOR TEST, Remove immdeiately
+    console.log("Youtube JSON:" , response);
+      
+
+    response.then(function(result){
           console.log(result.data.items[0].snippet.channelTitle);
           $ctrl.videoList = result.data.items;
           console.log("Response after btn", $ctrl.videoList);
@@ -39,6 +43,33 @@ function topSongsController(videoList, youtubeService, $timeout){
   }
 
   console.log("Top5:" , $ctrl.top5);
+
+  $ctrl.topTracks = [];
+
+  //Last.fm Service call
+  $ctrl.getLastFmChartTop = function(){
+    console.log("Last.fm Button Clicked");
+    let response = lastFmService.chart.getTopTracks();
+
+    response.then(function(result){
+        console.log("LastFm Then");
+
+        for(let i=0; i < 10; ++i ){
+          let temp = {};
+          temp.artist = result.data.tracks.track[i].artist.name;
+          temp.song = result.data.tracks.track[i].name;
+          temp.image = result.data.tracks.track[i].image[2]["#text"];
+          $ctrl.topTracks.push(temp);
+           
+        }
+        console.log("Top Tracks:" , $ctrl.topTracks[3]);
+      })
+    .catch(function(err){
+        return "ERROR :(";
+    });
+    
+  };
+
 }
 
 

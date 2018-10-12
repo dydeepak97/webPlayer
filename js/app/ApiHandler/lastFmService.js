@@ -16,7 +16,7 @@ function lastFmService( $http, LastFmApiBasePath, LastFmApiKey ){
     var service = this;
 
     service.limit = 10;
-    service.chart;
+    service.chart = [];
 
     service.chart.getTopTracks = function(){
         console.log("Charts.TopTracks API called");
@@ -33,13 +33,10 @@ function lastFmService( $http, LastFmApiBasePath, LastFmApiKey ){
         });
 
         return response.then(function(result){
-            console.log("LastFm Then");
-            service.chart.topList = [];
-
-        })
-        .catch(function(err){
-            return "ERROR :(";
-        })
+            console.log("SSSS: ", result);
+            return result;
+            
+        });
     }
     
 }
