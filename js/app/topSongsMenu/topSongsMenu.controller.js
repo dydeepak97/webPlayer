@@ -24,7 +24,7 @@ function topSongsController(videoList, youtubeService, $timeout){
           console.log(result.data.items[0].snippet.channelTitle);
           $ctrl.videoList = result.data.items;
           console.log("Response after btn", $ctrl.videoList);
-          for (var i = 1; i < 5; i++) {
+          for (var i = 0; i < 5; i++) {
            $ctrl.top5[i] = $ctrl.videoList[i];;
           }
       }).catch(function(error){
@@ -34,10 +34,10 @@ function topSongsController(videoList, youtubeService, $timeout){
 
   console.log("response:" , $ctrl.videoList[3]);
 
-  for (var i = 1; i < 5; i++) {
+  for (var i = 0; i < 5; i++) {
    $ctrl.top5[i] = $ctrl.videoList[i];
   }
-  
+
   console.log("Top5:" , $ctrl.top5);
 }
 

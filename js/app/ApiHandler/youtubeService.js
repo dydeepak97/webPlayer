@@ -2,16 +2,17 @@
 
 'use strict';
 
-console.log("Youtube ServiceCreated");
+console.log("Youtube Service Created");
 
 angular.module('ApiHandler')
 .service('youtubeService', youtubeService)
-.constant('ApiBasePath', "https://www.googleapis.com/youtube/v3/search")
-.constant('ApiKey', "AIzaSyAVqoqkJ01svDnPnEXpPPMisrwOZhiijqY");
+.constant('YoutubeApiBasePath', "https://www.googleapis.com/youtube/v3/search")
+.constant('YoutubeApiKey', "AIzaSyAVqoqkJ01svDnPnEXpPPMisrwOZhiijqY");
 
-youtubeService.$inject = ['$http' , 'ApiBasePath', 'ApiKey'];
-function youtubeService($http, ApiBasePath, ApiKey){
-  console.log("service Lonch");
+youtubeService.$inject = ['$http' , 'YoutubeApiBasePath', 'YoutubeApiKey'];
+
+function youtubeService($http, YoutubeApiBasePath, YoutubeApiKey){
+  console.log("Yutube Service Launched");
   var service = this;
 
   service.getSearchData = function(searchTerm){
@@ -20,12 +21,12 @@ function youtubeService($http, ApiBasePath, ApiKey){
 
       var response = $http({
         method: "GET",
-        url:ApiBasePath,
+        url: YoutubeApiBasePath,
         params:{
             part: 'snippet',
-            key: ApiKey,
+            key: YoutubeApiKey,
             q: searchTerm,
-            kind: 'video'
+            type: 'video'
         }
       });
       return response;

@@ -4,9 +4,13 @@
   <button class="btn" ng-click="topSongsMenu.getYoutubeSearch(topSongsMenu.searchTerm)">Search</button>
 </div>
 
+<ul class="" style="overflow-y:hidden;overflow-x:scroll;">
 
+<li ng-repeat="song in topSongsMenu.top5" >
 <!-- {{topSongsMenu.videoList | json }} -->
 <!-- {{topSongsMenu.top5}} -->
-<song-card ng-repeat="song in topSongsMenu.top5"
+<song-card
     song="song">
 </song-card>
+</li>
+</ul>
