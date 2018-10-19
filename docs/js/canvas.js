@@ -72,6 +72,7 @@ addEventListener('resize', () => {
     init()
 })
 
+
 // Objects
 function Particle(x, y, radius, color) {
     this.x = x
@@ -149,6 +150,11 @@ function animate() {
     particles.forEach(particle => {
      particle.update();
     });
+
+    c.fillStyle = "#EB6896";
+    c.font = "50px Garamond";
+    c.textAlign = "center";
+    c.fillText("Coming Soon", innerWidth/2 , innerHeight- (innerHeight * 0.1));
 }
 
 init()
