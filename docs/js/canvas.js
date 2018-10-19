@@ -152,7 +152,7 @@ function animate() {
     });
 
     c.fillStyle = "#EB6896";
-    c.font = "50px Garamond";
+    c.font = "50px Helvetica";
     c.textAlign = "center";
     c.fillText("Coming Soon", innerWidth/2 , innerHeight- (innerHeight * 0.1));
 }
